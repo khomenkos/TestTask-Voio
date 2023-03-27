@@ -12,15 +12,39 @@
 		E3CD477829D1A7AD00D771D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CD477729D1A7AD00D771D1 /* Assets.xcassets */; };
 		E3CD477B29D1A7AD00D771D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CD477929D1A7AD00D771D1 /* LaunchScreen.storyboard */; };
 		E3CD478329D1AA4600D771D1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD478229D1AA4600D771D1 /* TabBarViewController.swift */; };
-		E3CD478F29D1AAE500D771D1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD478E29D1AAE500D771D1 /* HomeViewController.swift */; };
+		E3CD478F29D1AAE500D771D1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD478E29D1AAE500D771D1 /* SearchViewController.swift */; };
 		E3CD479129D1AAEF00D771D1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD479029D1AAEF00D771D1 /* LoginViewController.swift */; };
 		E3CD479329D1AAFF00D771D1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD479229D1AAFF00D771D1 /* RegistrationViewController.swift */; };
 		E3CD479529D1AB0C00D771D1 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD479429D1AB0C00D771D1 /* FavoriteViewController.swift */; };
 		E3CD479729D1AB2100D771D1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD479629D1AB2100D771D1 /* ProfileViewController.swift */; };
 		E3CD479929D1AB3500D771D1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD479829D1AB3500D771D1 /* DetailViewController.swift */; };
+		E3CD479F29D1B3AD00D771D1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD479E29D1B3AD00D771D1 /* Utilities.swift */; };
+		E3CD47A129D1B3F100D771D1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47A029D1B3F100D771D1 /* UIView.swift */; };
+		E3CD47A329D1B42000D771D1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47A229D1B42000D771D1 /* UIViewController.swift */; };
+		E3CD47A529D1B73F00D771D1 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47A429D1B73F00D771D1 /* AuthManager.swift */; };
+		E3CD47A729D1B74C00D771D1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47A629D1B74C00D771D1 /* DatabaseManager.swift */; };
+		E3CD47A929D1B7EE00D771D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47A829D1B7EE00D771D1 /* User.swift */; };
+		E3CD47AB29D1B9A900D771D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3CD47AA29D1B9A900D771D1 /* GoogleService-Info.plist */; };
+		E3CD47AD29D1CD2200D771D1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47AC29D1CD2200D771D1 /* Movie.swift */; };
+		E3CD47B229D1CDCD00D771D1 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47B129D1CDCD00D771D1 /* UserDefaultsManager.swift */; };
+		E3CD47B429D1CDF400D771D1 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47B329D1CDF400D771D1 /* ApiResponse.swift */; };
+		E3CD47B629D1CDFD00D771D1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47B529D1CDFD00D771D1 /* APIService.swift */; };
+		E3CD47B829D1CE0700D771D1 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47B729D1CE0700D771D1 /* AppError.swift */; };
+		E3CD47BA29D1CE1100D771D1 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47B929D1CE1100D771D1 /* Method.swift */; };
+		E3CD47BC29D1CE1B00D771D1 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47BB29D1CE1B00D771D1 /* Route.swift */; };
+		E3CD47BE29D1CF5200D771D1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47BD29D1CF5200D771D1 /* String.swift */; };
+		E3CD47C229D1D16E00D771D1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47C129D1D16E00D771D1 /* SearchView.swift */; };
+		E3CD47C429D1D5E100D771D1 /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47C329D1D5E100D771D1 /* SearchVM.swift */; };
+		E3CD47C629D1D8D400D771D1 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47C529D1D8D400D771D1 /* SearchCollectionViewCell.swift */; };
+		E3CD47C929D218EF00D771D1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47C829D218EF00D771D1 /* LoginView.swift */; };
+		E3CD47CB29D218FE00D771D1 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47CA29D218FE00D771D1 /* RegistrationView.swift */; };
+		E3CD47CD29D2424300D771D1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CD47CC29D2424300D771D1 /* ProfileView.swift */; };
+		E81D3434540497C7047E95B1 /* Pods_TestTask_Voio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE820A17F8C61CE434CB88B /* Pods_TestTask_Voio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57041C1D8FB9B2D07D7B4876 /* Pods-TestTask-Voio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask-Voio.debug.xcconfig"; path = "Target Support Files/Pods-TestTask-Voio/Pods-TestTask-Voio.debug.xcconfig"; sourceTree = "<group>"; };
+		8AE820A17F8C61CE434CB88B /* Pods_TestTask_Voio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTask_Voio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CD476B29D1A7AC00D771D1 /* TestTask-Voio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TestTask-Voio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CD476E29D1A7AC00D771D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3CD477029D1A7AC00D771D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,12 +52,34 @@
 		E3CD477A29D1A7AD00D771D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3CD477C29D1A7AD00D771D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3CD478229D1AA4600D771D1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		E3CD478E29D1AAE500D771D1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E3CD478E29D1AAE500D771D1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E3CD479029D1AAEF00D771D1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E3CD479229D1AAFF00D771D1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E3CD479429D1AB0C00D771D1 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		E3CD479629D1AB2100D771D1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3CD479829D1AB3500D771D1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E3CD479E29D1B3AD00D771D1 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E3CD47A029D1B3F100D771D1 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		E3CD47A229D1B42000D771D1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E3CD47A429D1B73F00D771D1 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		E3CD47A629D1B74C00D771D1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E3CD47A829D1B7EE00D771D1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E3CD47AA29D1B9A900D771D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3CD47AC29D1CD2200D771D1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E3CD47B129D1CDCD00D771D1 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E3CD47B329D1CDF400D771D1 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		E3CD47B529D1CDFD00D771D1 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E3CD47B729D1CE0700D771D1 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		E3CD47B929D1CE1100D771D1 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		E3CD47BB29D1CE1B00D771D1 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		E3CD47BD29D1CF5200D771D1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		E3CD47C129D1D16E00D771D1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E3CD47C329D1D5E100D771D1 /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		E3CD47C529D1D8D400D771D1 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		E3CD47C829D218EF00D771D1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E3CD47CA29D218FE00D771D1 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E3CD47CC29D2424300D771D1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FEF01CDC024C5F699EA0083A /* Pods-TestTask-Voio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask-Voio.release.xcconfig"; path = "Target Support Files/Pods-TestTask-Voio/Pods-TestTask-Voio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +87,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81D3434540497C7047E95B1 /* Pods_TestTask_Voio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4FE93C1EB7B6C7A25A13CE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57041C1D8FB9B2D07D7B4876 /* Pods-TestTask-Voio.debug.xcconfig */,
+				FEF01CDC024C5F699EA0083A /* Pods-TestTask-Voio.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C6035A4295BB12F08576E0F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AE820A17F8C61CE434CB88B /* Pods_TestTask_Voio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E3CD476229D1A7AB00D771D1 = {
 			isa = PBXGroup;
 			children = (
 				E3CD476D29D1A7AC00D771D1 /* TestTask-Voio */,
 				E3CD476C29D1A7AC00D771D1 /* Products */,
+				B4FE93C1EB7B6C7A25A13CE6 /* Pods */,
+				C6035A4295BB12F08576E0F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,10 +135,13 @@
 				E3CD478829D1AA8000D771D1 /* App */,
 				E3CD478429D1AA5100D771D1 /* Controller */,
 				E3CD478629D1AA6D00D771D1 /* Model */,
+				E3CD478729D1AA7400D771D1 /* Managers */,
 				E3CD478929D1AA9300D771D1 /* Resources */,
 				E3CD478C29D1AAB700D771D1 /* Utils */,
-				E3CD478529D1AA6200D771D1 /* View */,
+				E3CD47C029D1D0BC00D771D1 /* ViewModel */,
+				E3CD478529D1AA6200D771D1 /* Views */,
 				E3CD477C29D1A7AD00D771D1 /* Info.plist */,
+				E3CD47AA29D1B9A900D771D1 /* GoogleService-Info.plist */,
 				E3CD477729D1A7AD00D771D1 /* Assets.xcassets */,
 				E3CD477929D1A7AD00D771D1 /* LaunchScreen.storyboard */,
 			);
@@ -82,26 +151,32 @@
 		E3CD478429D1AA5100D771D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E3CD479B29D1AB7B00D771D1 /* TabBar */,
-				E3CD479A29D1AB7400D771D1 /* Detail */,
 				E3CD478D29D1AACE00D771D1 /* Authorization */,
-				E3CD478E29D1AAE500D771D1 /* HomeViewController.swift */,
+				E3CD479A29D1AB7400D771D1 /* Detail */,
+				E3CD479B29D1AB7B00D771D1 /* TabBar */,
+				E3CD478E29D1AAE500D771D1 /* SearchViewController.swift */,
 				E3CD479429D1AB0C00D771D1 /* FavoriteViewController.swift */,
 				E3CD479629D1AB2100D771D1 /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		E3CD478529D1AA6200D771D1 /* View */ = {
+		E3CD478529D1AA6200D771D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E3CD47C729D218D400D771D1 /* Authorization */,
+				E3CD47BF29D1D0A700D771D1 /* Cells */,
+				E3CD47C129D1D16E00D771D1 /* SearchView.swift */,
+				E3CD47CC29D2424300D771D1 /* ProfileView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E3CD478629D1AA6D00D771D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3CD47A829D1B7EE00D771D1 /* User.swift */,
+				E3CD47AC29D1CD2200D771D1 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +184,9 @@
 		E3CD478729D1AA7400D771D1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E3CD47AF29D1CD4700D771D1 /* API */,
+				E3CD47AE29D1CD4000D771D1 /* Firebase */,
+				E3CD47B029D1CD4E00D771D1 /* UserDefaults */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -126,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				E3CD478A29D1AA9800D771D1 /* Extansions */,
-				E3CD478729D1AA7400D771D1 /* Managers */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -134,6 +211,9 @@
 		E3CD478A29D1AA9800D771D1 /* Extansions */ = {
 			isa = PBXGroup;
 			children = (
+				E3CD47A029D1B3F100D771D1 /* UIView.swift */,
+				E3CD47A229D1B42000D771D1 /* UIViewController.swift */,
+				E3CD47BD29D1CF5200D771D1 /* String.swift */,
 			);
 			path = Extansions;
 			sourceTree = "<group>";
@@ -141,6 +221,7 @@
 		E3CD478C29D1AAB700D771D1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E3CD479E29D1B3AD00D771D1 /* Utilities.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -170,6 +251,60 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		E3CD47AE29D1CD4000D771D1 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E3CD47A429D1B73F00D771D1 /* AuthManager.swift */,
+				E3CD47A629D1B74C00D771D1 /* DatabaseManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		E3CD47AF29D1CD4700D771D1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E3CD47B329D1CDF400D771D1 /* ApiResponse.swift */,
+				E3CD47B529D1CDFD00D771D1 /* APIService.swift */,
+				E3CD47B729D1CE0700D771D1 /* AppError.swift */,
+				E3CD47B929D1CE1100D771D1 /* Method.swift */,
+				E3CD47BB29D1CE1B00D771D1 /* Route.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E3CD47B029D1CD4E00D771D1 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				E3CD47B129D1CDCD00D771D1 /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		E3CD47BF29D1D0A700D771D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E3CD47C529D1D8D400D771D1 /* SearchCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E3CD47C029D1D0BC00D771D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3CD47C329D1D5E100D771D1 /* SearchVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E3CD47C729D218D400D771D1 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				E3CD47C829D218EF00D771D1 /* LoginView.swift */,
+				E3CD47CA29D218FE00D771D1 /* RegistrationView.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,9 +312,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3CD477F29D1A7AD00D771D1 /* Build configuration list for PBXNativeTarget "TestTask-Voio" */;
 			buildPhases = (
+				0BDE1EC80B204CBDBA3FA906 /* [CP] Check Pods Manifest.lock */,
 				E3CD476729D1A7AC00D771D1 /* Sources */,
 				E3CD476829D1A7AC00D771D1 /* Frameworks */,
 				E3CD476929D1A7AC00D771D1 /* Resources */,
+				24AE81AD888FF6CA0A3670E4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,25 +367,88 @@
 			files = (
 				E3CD477B29D1A7AD00D771D1 /* LaunchScreen.storyboard in Resources */,
 				E3CD477829D1A7AD00D771D1 /* Assets.xcassets in Resources */,
+				E3CD47AB29D1B9A900D771D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BDE1EC80B204CBDBA3FA906 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestTask-Voio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24AE81AD888FF6CA0A3670E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestTask-Voio/Pods-TestTask-Voio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestTask-Voio/Pods-TestTask-Voio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestTask-Voio/Pods-TestTask-Voio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E3CD476729D1A7AC00D771D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CD47A929D1B7EE00D771D1 /* User.swift in Sources */,
+				E3CD47B629D1CDFD00D771D1 /* APIService.swift in Sources */,
+				E3CD47BE29D1CF5200D771D1 /* String.swift in Sources */,
+				E3CD47CB29D218FE00D771D1 /* RegistrationView.swift in Sources */,
 				E3CD479129D1AAEF00D771D1 /* LoginViewController.swift in Sources */,
-				E3CD478F29D1AAE500D771D1 /* HomeViewController.swift in Sources */,
+				E3CD47B229D1CDCD00D771D1 /* UserDefaultsManager.swift in Sources */,
+				E3CD478F29D1AAE500D771D1 /* SearchViewController.swift in Sources */,
+				E3CD47BA29D1CE1100D771D1 /* Method.swift in Sources */,
 				E3CD478329D1AA4600D771D1 /* TabBarViewController.swift in Sources */,
+				E3CD47A529D1B73F00D771D1 /* AuthManager.swift in Sources */,
 				E3CD479329D1AAFF00D771D1 /* RegistrationViewController.swift in Sources */,
+				E3CD47CD29D2424300D771D1 /* ProfileView.swift in Sources */,
+				E3CD47AD29D1CD2200D771D1 /* Movie.swift in Sources */,
+				E3CD47A329D1B42000D771D1 /* UIViewController.swift in Sources */,
+				E3CD47A729D1B74C00D771D1 /* DatabaseManager.swift in Sources */,
 				E3CD476F29D1A7AC00D771D1 /* AppDelegate.swift in Sources */,
+				E3CD47BC29D1CE1B00D771D1 /* Route.swift in Sources */,
+				E3CD47B829D1CE0700D771D1 /* AppError.swift in Sources */,
 				E3CD479729D1AB2100D771D1 /* ProfileViewController.swift in Sources */,
 				E3CD479929D1AB3500D771D1 /* DetailViewController.swift in Sources */,
 				E3CD479529D1AB0C00D771D1 /* FavoriteViewController.swift in Sources */,
+				E3CD479F29D1B3AD00D771D1 /* Utilities.swift in Sources */,
+				E3CD47B429D1CDF400D771D1 /* ApiResponse.swift in Sources */,
+				E3CD47C929D218EF00D771D1 /* LoginView.swift in Sources */,
+				E3CD47C429D1D5E100D771D1 /* SearchVM.swift in Sources */,
+				E3CD47C629D1D8D400D771D1 /* SearchCollectionViewCell.swift in Sources */,
+				E3CD47C229D1D16E00D771D1 /* SearchView.swift in Sources */,
 				E3CD477129D1A7AC00D771D1 /* SceneDelegate.swift in Sources */,
+				E3CD47A129D1B3F100D771D1 /* UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +582,7 @@
 		};
 		E3CD478029D1A7AD00D771D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57041C1D8FB9B2D07D7B4876 /* Pods-TestTask-Voio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -410,6 +611,7 @@
 		};
 		E3CD478129D1A7AD00D771D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEF01CDC024C5F699EA0083A /* Pods-TestTask-Voio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
