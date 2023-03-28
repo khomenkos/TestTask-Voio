@@ -14,15 +14,17 @@ struct User {
     let email: String
     var profileImageUrl: URL?
     
-    var fullName: String {
-        firstName + " " + lastName
-    }
-    
     init(uid: String, dictionary: [String: AnyObject]) {
         self.uid = uid
         
         self.firstName = dictionary["firstName"] as? String ?? ""
         self.lastName = dictionary["lastName"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
+    }
+}
+
+extension User {
+    var fullName: String {
+        firstName + " " + lastName
     }
 }

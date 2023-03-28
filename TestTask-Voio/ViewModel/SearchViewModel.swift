@@ -8,11 +8,13 @@
 import Foundation
 import ProgressHUD
 
-protocol ViewModelDelegate: AnyObject {
+protocol SearchVMDelegate: AnyObject {
     func didUpdateMovies(_ movies: [Movie])
 }
 
-class MovieListVM {
+class SearchViewModel {
+    weak var delegate: SearchVMDelegate?
+    
     var movies: [Movie] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -20,7 +22,6 @@ class MovieListVM {
             }
         }
     }
-    weak var delegate: ViewModelDelegate?
     
     func fetchMovies(query: String) {
         ProgressHUD.show()

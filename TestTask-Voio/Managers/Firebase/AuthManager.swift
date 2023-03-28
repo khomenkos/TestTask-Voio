@@ -10,7 +10,7 @@ import FirebaseAuth
 public class AuthManager {
     
     static let shared = AuthManager()
-
+    
     // MARK: - Public
     public func registerNewUser(firstName: String,
                                 lastName: String,

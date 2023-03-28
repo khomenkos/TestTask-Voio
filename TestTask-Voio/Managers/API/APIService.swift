@@ -49,7 +49,7 @@ struct APIService {
         guard let result = result else {
             completion(.failure(AppError.unknownError))
             return
-            }
+        }
         
         switch result {
         case .success(let data):
@@ -85,7 +85,7 @@ struct APIService {
             case .get:
                 var urlComponent = URLComponents(string: urlString)
                 urlComponent?.queryItems = params.map {
-                     URLQueryItem(name: $0, value: "\($1)")
+                    URLQueryItem(name: $0, value: "\($1)")
                 }
                 urlRequest.url = urlComponent?.url
             case .post, .delete, .patch:

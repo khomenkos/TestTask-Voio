@@ -13,7 +13,7 @@ class RegistrationView: UIView {
     
     //ScrollView
     private let scrollView = UIScrollView()
-
+    
     //Labels
     private let signUpLabel: UILabel = {
         let label = UILabel()

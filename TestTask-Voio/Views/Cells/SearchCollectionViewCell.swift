@@ -6,24 +6,31 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 class SearchCollectionViewCell: UICollectionViewCell {
-    
-    // MARK: - Variables
-    
     static let identifier = "SearchCollectionViewCell"
     
+    // MARK: - Outlets
     private(set) var containerCardView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 10.0
-        view.layer.shadowColor = UIColor.gray.cgColor
-        view.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        view.layer.shadowRadius = 6.0
-        view.layer.shadowOpacity = 0.7
+        view.setupShadow(radius: 6, shadowOpacity: 0.7)
         return view
+    }()
+    
+    private let infoStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = UIColor(named: "lightGray")
+        stackView.layer.cornerRadius = 10
+        stackView.spacing = 10
+        stackView.axis = .vertical
+        stackView.layoutMargins = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
     }()
     
     private(set) var movieImageView: UIImageView = {
@@ -31,6 +38,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10.0
         return imageView
     }()
     
@@ -39,20 +47,29 @@ class SearchCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 18.0)
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
         return label
     }()
     
-    private(set) var movieDescriptionLabel: UILabel = {
+    private(set) var movieYearLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 4
-        label.font = UIFont.systemFont(ofSize: 16.0)
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        return label
+    }()
+    
+    private(set) var movieGenreLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 4
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14.0)
         return label
     }()
     
     // MARK: - Initializers
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -61,25 +78,23 @@ class SearchCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
-    // MARK: Setup UI
     
+    // MARK: Setup UI
     func configure(movie: Movie) {
-        movieImageView.sd_setImage(with: movie.artworkUrl100.asUrl)
+        movieImageView.sd_setImage(with: movie.artworkUrl100?.asUrl)
         movieTitleLabel.text = movie.trackName
-        if let description = movie.shortDescription {
-            movieDescriptionLabel.text = description
-        } else {
-            movieDescriptionLabel.text = movie.longDescription
-        }
+        guard let dateRelease = movie.releaseDate?.yearMonthDayString() else { return }
+        movieYearLabel.text = dateRelease
+        movieGenreLabel.text = movie.primaryGenreName
     }
-
+    
     private func setupUI() {
-        
         contentView.addSubview(containerCardView)
         containerCardView.addSubview(movieImageView)
         containerCardView.addSubview(movieTitleLabel)
-        containerCardView.addSubview(movieDescriptionLabel)
+        containerCardView.addSubview(infoStack)
+        infoStack.addArrangedSubview(movieYearLabel)
+        infoStack.addArrangedSubview(movieGenreLabel)
         
         NSLayoutConstraint.activate([
             containerCardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -90,24 +105,21 @@ class SearchCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             movieImageView.topAnchor.constraint(equalTo: containerCardView.topAnchor, constant: 10),
-            movieImageView.leadingAnchor.constraint(equalTo: containerCardView.leadingAnchor),
-            movieImageView.trailingAnchor.constraint(equalTo: containerCardView.trailingAnchor),
+            movieImageView.centerXAnchor.constraint(equalTo: containerCardView.centerXAnchor),
             movieImageView.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         NSLayoutConstraint.activate([
             movieTitleLabel.topAnchor.constraint(equalTo: movieImageView.bottomAnchor),
-            movieTitleLabel.leadingAnchor.constraint(equalTo: containerCardView.leadingAnchor),
-            movieTitleLabel.trailingAnchor.constraint(equalTo: containerCardView.trailingAnchor),
+            movieTitleLabel.leadingAnchor.constraint(equalTo: containerCardView.leadingAnchor, constant: 5),
+            movieTitleLabel.trailingAnchor.constraint(equalTo: containerCardView.trailingAnchor, constant: -5)
         ])
         
         NSLayoutConstraint.activate([
-            movieDescriptionLabel.topAnchor.constraint(equalTo: movieTitleLabel.bottomAnchor),
-            movieDescriptionLabel.leadingAnchor.constraint(equalTo: containerCardView.leadingAnchor, constant: 10),
-            movieDescriptionLabel.trailingAnchor.constraint(equalTo: containerCardView.trailingAnchor, constant: -10),
-            movieDescriptionLabel.bottomAnchor.constraint(equalTo: containerCardView.bottomAnchor, constant: -10)
+            infoStack.topAnchor.constraint(equalTo: movieTitleLabel.bottomAnchor, constant: 5),
+            infoStack.leadingAnchor.constraint(equalTo: containerCardView.leadingAnchor, constant: 5),
+            infoStack.trailingAnchor.constraint(equalTo: containerCardView.trailingAnchor, constant: -5),
+            infoStack.bottomAnchor.constraint(equalTo: containerCardView.bottomAnchor, constant: -10)
         ])
     }
 }
-
-

@@ -10,7 +10,6 @@ import UIKit
 class SearchView: UIView {
     
     // MARK: Outlets
-
     private(set) var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +23,7 @@ class SearchView: UIView {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width / 2, height: 300)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width / 2, height: 250)
         collectionView.keyboardDismissMode = .onDrag
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
@@ -58,7 +57,7 @@ class SearchView: UIView {
             movieCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             movieCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             movieCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            movieCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            movieCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

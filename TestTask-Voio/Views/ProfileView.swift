@@ -11,7 +11,6 @@ import UIKit
 class ProfileView: UIView {
     
     // MARK: Outlets
-
     // Labels
     private(set) var fullNameLabel: UILabel = {
         let label = UILabel()
@@ -33,7 +32,6 @@ class ProfileView: UIView {
     }()
     
     // MARK: Containers
-    
     //Info Stack
     private lazy var emailContainer: UIStackView = {
         let stack = Utilities().containerView(withlabel: "Email", view: emailLabel)
@@ -64,7 +62,6 @@ class ProfileView: UIView {
     }()
     
     // MARK: - Initializers
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -75,7 +72,7 @@ class ProfileView: UIView {
     }
     
     // MARK: Setup UI
-    private func setupUI(){
+    private func setupUI() {
         let stackMain = UIStackView(arrangedSubviews: [fullNameLabel, infoStack])
         stackMain.translatesAutoresizingMaskIntoConstraints = false
         stackMain.axis = .vertical

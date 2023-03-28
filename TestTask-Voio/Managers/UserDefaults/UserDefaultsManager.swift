@@ -33,9 +33,7 @@ final class UserDefaultsManager {
         guard var array = favorites else {return}
         array.append(movie)
         favorites = array
-    }
-    
-
+    }    
     
     func isFavoriteMovie(_ movie: Movie) -> Bool {
         guard let favoritesArray = favorites else { return false }

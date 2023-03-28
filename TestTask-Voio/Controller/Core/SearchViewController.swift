@@ -8,14 +8,15 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
-    private var viewModel: MovieListVM
-
+    
+    // MARK: - Variables
+    private var viewModel: SearchViewModel
+    
     // MARK: View
     private var views = SearchView()
     
     // MARK: Initializers
-    init(viewModel: MovieListVM) {
+    init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,7 +34,7 @@ class SearchViewController: UIViewController {
         title = "Search"
         view.backgroundColor = .systemBackground
         super.viewDidLoad()
-
+        
         viewModel.delegate = self
         views.movieCollectionView.dataSource = self
         views.movieCollectionView.delegate = self
@@ -64,9 +65,10 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let movie = viewModel.movies[indexPath.row]
-        let vc = DetailViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let movie = viewModel.movies[indexPath.row]
+        let detailVM = DetailViewModel(movie: movie)
+        let detailVC = DetailViewController(viewModel: detailVM)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
@@ -82,8 +84,9 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-extension SearchViewController: ViewModelDelegate {
+extension SearchViewController: SearchVMDelegate{
     func didUpdateMovies(_ movies: [Movie]) {
         self.views.movieCollectionView.reloadData()
     }
 }
+

@@ -11,6 +11,7 @@ import ProgressHUD
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - Variables
     private var user: User? {
         didSet {
             ProgressHUD.dismiss()

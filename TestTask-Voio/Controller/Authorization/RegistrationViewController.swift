@@ -9,9 +9,10 @@ import UIKit
 import ProgressHUD
 
 class RegistrationViewController: UIViewController {
-
+    
+    // MARK: - Variables
     var activeTextField : UITextField? = nil
-
+    
     // MARK: View
     private var views = RegistrationView()
     
@@ -43,9 +44,7 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc func loginButtonTapped() {
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .overFullScreen
-        present(loginVC, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func registrationButtonTapped() {

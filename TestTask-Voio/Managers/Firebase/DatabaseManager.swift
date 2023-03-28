@@ -10,11 +10,9 @@ import Firebase
 struct DatabaseManager {
     
     static let shared = DatabaseManager()
-    
     private let database = Database.database().reference()
-
+    
     // MARK: - Public
-
     // Check if  email is available
     public func canCreateNewUser(firstName: String,
                                  lastName: String,
@@ -22,15 +20,14 @@ struct DatabaseManager {
                                  completion: (Bool) -> Void) {
         completion(true)
     }
-
+    
     // Inserts new user data to database
     public func insertNewUser(uid: String,
                               firstName: String,
                               lastName: String,
                               email: String,
                               completion: @escaping (Bool) -> Void) {
-
-
+        
         let userData = ["firstName": firstName,
                         "lastName": lastName,
                         "email": email] as [String : Any]
@@ -51,10 +48,8 @@ struct DatabaseManager {
     func fetchUser(uid: String, completion: @escaping(User) -> Void) {
         database.child("users").child(uid).observeSingleEvent(of: .value) { snapshot in
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-            
             let user = User(uid: uid, dictionary: dictionary)
             completion(user)
         }
     }
-
 }
