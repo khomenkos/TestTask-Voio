@@ -14,18 +14,26 @@ final class UserDefaultsManager {
     
     private enum DefaultKeys: String {
         case favorite
+        case currentUserId
     }
     
-    var favorites: [Movie]?{
+    var currentUserId: String? {
         get {
-            if let data = defaults.object(forKey: DefaultKeys.favorite.rawValue) as? Data,
-               let movies = try? PropertyListDecoder().decode(Array<Movie>.self, from: data) {
-                return movies
-            }
-            return []
+            return defaults.string(forKey: DefaultKeys.currentUserId.rawValue)
         } set {
-            guard let value = newValue else {return}
-            defaults.set(try? PropertyListEncoder().encode(value), forKey: DefaultKeys.favorite.rawValue)
+            defaults.set(newValue, forKey: DefaultKeys.currentUserId.rawValue)
+        }
+    }
+    
+    var favorites: [Movie]? {
+        get {
+            guard let userId = currentUserId,
+                  let data = defaults.object(forKey: DefaultKeys.favorite.rawValue + userId) as? Data,
+                  let movies = try? PropertyListDecoder().decode(Array<Movie>.self, from: data) else { return [] }
+            return movies
+        } set {
+            guard let value = newValue, let userId = currentUserId else { return }
+            defaults.set(try? PropertyListEncoder().encode(value), forKey: DefaultKeys.favorite.rawValue + userId)
         }
     }
     
@@ -33,7 +41,7 @@ final class UserDefaultsManager {
         guard var array = favorites else {return}
         array.append(movie)
         favorites = array
-    }    
+    }
     
     func isFavoriteMovie(_ movie: Movie) -> Bool {
         guard let favoritesArray = favorites else { return false }
@@ -46,7 +54,7 @@ final class UserDefaultsManager {
     }
     
     func removeMovieFromFavorites(_ movie: Movie) {
-        guard var favoriteArray = favorites else {return}
+        guard var favoriteArray = favorites else { return }
         var index = Int()
         for (i,favorite) in favoriteArray.enumerated() {
             if favorite.trackId == movie.trackId {
@@ -58,8 +66,12 @@ final class UserDefaultsManager {
     }
     
     func fetchFavoriteMovies() -> [Movie] {
-        guard let favorites = favorites else {return []}
+        guard let favorites = favorites else { return [] }
         return favorites
+    }
+    
+    func updateCurrentUser(_ userId: String) {
+        currentUserId = userId
     }
 }
 

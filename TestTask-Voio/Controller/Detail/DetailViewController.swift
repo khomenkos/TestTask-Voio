@@ -65,6 +65,7 @@ class DetailViewController: UIViewController {
         views.moviePriceButton.addTarget(self, action: #selector(self.priceButtonPressed), for: .touchUpInside)
         views.movieTrailerButton.addTarget(self, action: #selector(self.playButtonPressed), for: .touchUpInside)
         views.favoritesButton.addTarget(self, action: #selector(self.favoriteButtonPressed), for: .touchUpInside)
+        views.shareButton.addTarget(self, action: #selector(self.shareButtonPressed), for: .touchUpInside)
     }
     
     private func setupNavBar() {
@@ -72,9 +73,14 @@ class DetailViewController: UIViewController {
     }
     
     @objc func priceButtonPressed() {
-        if let url = URL(string: viewModel.movie.storeURL) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
+        guard let url = viewModel.movie.storeURL.asUrl else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    @objc func shareButtonPressed() {
+        guard let url = viewModel.movie.trackViewUrl?.asUrl else { return }
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     @objc func favoriteButtonPressed() {

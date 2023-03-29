@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController {
     
     private func setUpTabs() {
         let homeVC = SearchViewController(viewModel: SearchViewModel())
-        let favoriteVC = FavoriteViewController()
+        let favoriteVC = FavoriteViewController(viewModel: FavoriteViewModel())
         let profileVC = ProfileViewController()
         
         homeVC.navigationItem.largeTitleDisplayMode = .automatic

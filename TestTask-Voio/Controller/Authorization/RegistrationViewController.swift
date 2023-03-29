@@ -84,9 +84,7 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         var shouldMoveViewUp = false
         
         if let activeTextField = activeTextField {

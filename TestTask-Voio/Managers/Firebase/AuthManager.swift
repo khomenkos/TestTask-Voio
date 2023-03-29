@@ -63,10 +63,11 @@ public class AuthManager {
         if let email = email {
             // Email log in
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                guard authResult != nil, error == nil else {
+                guard let uid = authResult?.user.uid, authResult != nil, error == nil else {
                     completion(false)
                     return
                 }
+                UserDefaultsManager.shared.updateCurrentUser(uid)
                 completion(true)
             }
         }
