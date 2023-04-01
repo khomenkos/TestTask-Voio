@@ -13,10 +13,9 @@ class DetailView: UIView {
     private(set) var movieImage: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 15
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.setupShadow(radius: 5, shadowOpacity: 1)
+        imageView.setDimensions(width: 155, height: 220)
         return imageView
     }()
     
@@ -34,7 +33,6 @@ class DetailView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 8
         stackView.distribution = .fillEqually
-        stackView.setupShadow(radius: 10, shadowOpacity: 1)
         return stackView
     }()
     
@@ -42,6 +40,7 @@ class DetailView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.textAlignment = .center
+        label.textColor = .white
         return label
     }()
     
@@ -56,6 +55,7 @@ class DetailView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18.0)
         label.textAlignment = .center
+        label.textColor = .white
         return label
     }()
     
@@ -63,6 +63,7 @@ class DetailView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18.0)
         label.textAlignment = .center
+        label.textColor = .white
         return label
     }()
     
@@ -78,9 +79,8 @@ class DetailView: UIView {
     
     //Buttons
     private(set) var favoritesButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor(named: "darkBlue")
-        button.layer.cornerRadius = 50 / 2
+        let button = Utilities().customButton()
+        button.tintColor = UIColor(named: "customGray")
         return button
     }()
     
@@ -91,19 +91,13 @@ class DetailView: UIView {
     }()
     
     private(set) var movieTrailerButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
+        let button = Utilities().customButton()
         button.setTitle("Play Trailer", for: .normal)
-        button.layer.cornerRadius = 15
-        button.backgroundColor = UIColor(named: "darkBlue")
         return button
     }()
     
     private(set) lazy var moviePriceButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 15
-        button.backgroundColor = UIColor(named: "darkBlue")
+        let button = Utilities().customButton()
         return button
     }()
     
@@ -129,32 +123,23 @@ class DetailView: UIView {
     }
     
     // MARK: Setup UI
-    private func setupUI() {
-        backgroundColor = .white
-        
+    private func setupUI() {        
         addSubview(movieImage)
         addSubview(movieInfoStackView)
         
         movieInfoStackView.addArrangedSubview(movieTitleLabel)
         movieInfoStackView.addArrangedSubview(movieReleaseDateLabel)
         movieInfoStackView.addArrangedSubview(movieDirectorLabel)
-        movieInfoStackView.addArrangedSubview(buttonsStackView)
         movieInfoStackView.addArrangedSubview(movieDescriptionLabel)
+        movieInfoStackView.addArrangedSubview(buttonsStackView)
         
         buttonsStackView.addArrangedSubview(moviePriceButton)
         buttonsStackView.addArrangedSubview(favoritesButton)
         buttonsStackView.addArrangedSubview(movieTrailerButton)
         
         NSLayoutConstraint.activate([
-            favoritesButton.widthAnchor.constraint(equalToConstant: 50),
-            favoritesButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        NSLayoutConstraint.activate([
             movieImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            movieImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            movieImage.widthAnchor.constraint(equalToConstant: 155),
-            movieImage.heightAnchor.constraint(equalToConstant: 220)
+            movieImage.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([

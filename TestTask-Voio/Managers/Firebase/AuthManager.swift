@@ -16,13 +16,15 @@ public class AuthManager {
                                 lastName: String,
                                 email: String,
                                 password: String,
+                                profileImage: UIImage,
                                 completion: @escaping (Bool) -> Void) {
         /*
          - Check if email is available
          */
         DatabaseManager.shared.canCreateNewUser(firstName: firstName,
                                                 lastName: lastName,
-                                                email: email) { canCreate in
+                                                email: email,
+                                                profileImage: profileImage) { canCreate in
             if canCreate {
                 /*
                  - Create account
@@ -41,7 +43,8 @@ public class AuthManager {
                     DatabaseManager.shared.insertNewUser(uid: uid,
                                                          firstName: firstName,
                                                          lastName: lastName,
-                                                         email: email) { inserted in
+                                                         email: email,
+                                                         profileImage: profileImage) { inserted in
                         if inserted {
                             completion(true)
                             return
@@ -68,6 +71,7 @@ public class AuthManager {
                     return
                 }
                 UserDefaultsManager.shared.updateCurrentUser(uid)
+                //UserDefaultsManager.shared.clearUserDefaultsForPreviousUser()
                 completion(true)
             }
         }

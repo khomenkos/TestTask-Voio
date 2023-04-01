@@ -16,14 +16,15 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 10.0
-        view.setupShadow(radius: 6, shadowOpacity: 0.7)
+        view.backgroundColor = UIColor(named: "customGray")
         return view
     }()
     
     private let infoStack: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.backgroundColor = UIColor(named: "lightGray")
+        //stackView.backgroundColor = UIColor(named: "lightGray")
+        stackView.axis = .vertical
         stackView.layer.cornerRadius = 10
         stackView.spacing = 10
         stackView.layoutMargins = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
@@ -45,6 +46,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         label.textAlignment = .left
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         return label
     }()
@@ -53,7 +55,8 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 4
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14.0)
         return label
     }()
@@ -62,7 +65,8 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 4
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14.0)
         return label
     }()

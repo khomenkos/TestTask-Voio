@@ -6,17 +6,20 @@
 //
 
 import Firebase
+import FirebaseStorage
 
 struct DatabaseManager {
     
     static let shared = DatabaseManager()
     private let database = Database.database().reference()
+    private let storage = Storage.storage().reference()
     
     // MARK: - Public
     // Check if  email is available
     public func canCreateNewUser(firstName: String,
                                  lastName: String,
                                  email: String,
+                                 profileImage: UIImage,
                                  completion: (Bool) -> Void) {
         completion(true)
     }
@@ -26,21 +29,31 @@ struct DatabaseManager {
                               firstName: String,
                               lastName: String,
                               email: String,
+                              profileImage: UIImage,
                               completion: @escaping (Bool) -> Void) {
         
-        let userData = ["firstName": firstName,
-                        "lastName": lastName,
-                        "email": email] as [String : Any]
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+        let filename = NSUUID().uuidString
+        let storageRef = storage.child("profile_images").child(filename)
         
-        database.child("users").child(uid).setValue(userData) { error, _ in
-            if error == nil {
-                // Succeeded
-                completion(true)
-                return
-            } else {
-                // Failed
-                completion(false)
-                return
+        storageRef.putData(imageData, metadata: nil) { (_, _) in
+            storageRef.downloadURL { url, _ in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                
+                let userData = ["firstName": firstName,
+                                "lastName": lastName,
+                                "email": email,
+                                "profileImage": profileImageUrl] as [String : Any]
+                
+                self.database.child("users").child(uid).setValue(userData) { error, _ in
+                    if error == nil {
+                        completion(true)
+                        return
+                    } else {
+                        completion(false)
+                        return
+                    }
+                }
             }
         }
     }

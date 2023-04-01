@@ -16,7 +16,6 @@ class FavoriteViewController: UIViewController {
     private var views = FavoriteView()
     
     // MARK: Initializers
-    
     init(viewModel: FavoriteViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,11 +32,9 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favorite"
-        view.backgroundColor = .systemBackground
-        
         viewModel.delegate = self
         setupCollectionView()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,9 +43,20 @@ class FavoriteViewController: UIViewController {
     }
     
     // MARK: Methods
-    func setupCollectionView() {
+    private func setupCollectionView() {
         views.movieCollectionView.dataSource = self
         views.movieCollectionView.delegate = self
+    }
+    
+    private func setupUI() {
+        title = "Favorite"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        view.backgroundColor = UIColor(named: "customDark")
+    }
+    
+    private func showNoResult() {
+        views.noResult.isHidden = UserDefaultsManager.shared.favorites?.count ?? 0 > 0
     }
 }
 
@@ -78,6 +86,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
 
 extension FavoriteViewController: SearchVMDelegate {
     func didUpdateMovies(_ movies: [Movie]) {
+        showNoResult()
         self.views.movieCollectionView.reloadData()
     }
 }

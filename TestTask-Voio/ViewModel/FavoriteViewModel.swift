@@ -22,24 +22,4 @@ class FavoriteViewModel {
     func fetchMovies() {
         favorites = UserDefaultsManager.shared.fetchFavoriteMovies()
     }
-    
-//    init(movieService: MovieServiceProtocol = MovieService()) {
-//        self.movieService = movieService
-//        fetchFavorites()
-//    }
-//
-//    func fetchFavorites() {
-//        let favorites = User
-//
-//        for favorite in favorites {
-//            movieService.getFavorites(movieId: favorite) { [weak self] result in
-//                switch result {
-//                case .failure(let error):
-//                    self?.error = error
-//                case .success(let movies):
-//                    self?.favorites.append(contentsOf: movies)
-//                }
-//            }
-//        }
-//    }
 }

@@ -74,4 +74,3 @@ final class UserDefaultsManager {
         currentUserId = userId
     }
 }
-

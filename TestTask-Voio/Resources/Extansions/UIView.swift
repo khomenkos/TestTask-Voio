@@ -13,11 +13,4 @@ extension UIView {
         widthAnchor.constraint(equalToConstant: width).isActive = true
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
-    
-    func setupShadow(radius: Double, shadowOpacity: Float) {
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = radius
-        layer.shadowOpacity = shadowOpacity
-    }
 }

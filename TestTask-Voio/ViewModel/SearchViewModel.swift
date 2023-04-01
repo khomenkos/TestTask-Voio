@@ -28,10 +28,12 @@ class SearchViewModel {
         APIService.shared.fetchMovie(query: query) { (result) in
             switch result {
             case .success(let movies):
-                ProgressHUD.dismiss()
-                self.movies = movies
+                if !movies.isEmpty {
+                    ProgressHUD.dismiss()
+                    self.movies = movies
+                }
             case .failure(_):
-                ProgressHUD.showError()
+                ProgressHUD.showError("No Result")
             }
         }
     }

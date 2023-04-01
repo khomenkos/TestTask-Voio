@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: "customDark")
         hideKeyboard()
         setupEventHandlers()
     }
@@ -32,9 +32,14 @@ class LoginViewController: UIViewController {
     
     // MARK: Actions
     @objc func registrationButtonTapped() {
-        let signUpVC = RegistrationViewController()
-        signUpVC.modalPresentationStyle = .overFullScreen
-        present(signUpVC, animated: true, completion: nil)
+        ProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            ProgressHUD.dismiss()
+            let signUpVC = RegistrationViewController()
+            signUpVC.modalPresentationStyle = .overFullScreen
+            self.present(signUpVC, animated: true) {
+            }
+        }
     }
     
     @objc func loginButtonTapped() {

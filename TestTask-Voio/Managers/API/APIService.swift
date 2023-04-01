@@ -58,6 +58,12 @@ struct APIService {
                 completion(.failure(AppError.errorDecoding))
                 return
             }
+            if let error = response.resultCount {
+                if error == 0 {
+                    completion(.failure(AppError.emptyResult(error)))
+                }
+            }
+            
             if let decodedData = response.results {
                 completion(.success(decodedData))
             } else {

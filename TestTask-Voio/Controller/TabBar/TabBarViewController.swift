@@ -15,6 +15,7 @@ class TabBarViewController: UITabBarController {
     }
     
     private func setUpTabs() {
+        setupUI()
         let homeVC = SearchViewController(viewModel: SearchViewModel())
         let favoriteVC = FavoriteViewController(viewModel: FavoriteViewModel())
         let profileVC = ProfileViewController()
@@ -39,8 +40,15 @@ class TabBarViewController: UITabBarController {
         
         for nav in [nav1, nav2, nav3] {
             nav.navigationBar.prefersLargeTitles = true
+            nav.navigationBar.tintColor = .white
         }
         
         setViewControllers([nav1, nav2, nav3], animated: true)
+    }
+    
+    private func setupUI() {
+        tabBar.backgroundColor = UIColor(named: "customDarkGray")
+        tabBar.tintColor = UIColor(named: "customYellow")
+        tabBar.unselectedItemTintColor = UIColor(named: "customGray")
     }
 }

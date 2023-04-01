@@ -12,6 +12,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
 pod 'SDWebImage', '~> 5.0'
 pod 'ProgressHUD'
 

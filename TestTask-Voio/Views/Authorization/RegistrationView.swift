@@ -14,13 +14,18 @@ class RegistrationView: UIView {
     //ScrollView
     private let scrollView = UIScrollView()
     
+    //Image
+    private(set) var imagePicker = UIImagePickerController()
+    var profileImage: UIImage?
+    
     //Labels
     private let signUpLabel: UILabel = {
         let label = UILabel()
         label.text = "SignUp"
-        label.font = UIFont(name: "Gill Sans SemiBold", size: 33)
+        label.font = UIFont.systemFont(ofSize: 33, weight: .bold)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -28,7 +33,7 @@ class RegistrationView: UIView {
     private let adviceLabel: UILabel = {
         let label = UILabel()
         label.text = "Please enter your email address and enter password"
-        label.font = UIFont(name: "Gill Sans Light", size: 16)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .lightGray
@@ -83,7 +88,7 @@ class RegistrationView: UIView {
     }()
     
     private(set) var passwordTextField: UITextField = {
-        let textField = Utilities().textField(withPlaceholder: "Password")
+        let textField = Utilities().textField(withPlaceholder: "Password (min 8 symbols)")
         textField.returnKeyType = .continue
         textField.autocapitalizationType = .none
         textField.isSecureTextEntry = true
@@ -100,18 +105,25 @@ class RegistrationView: UIView {
     
     // Buttons
     private(set) var registerButton: UIButton = {
-        let button = UIButton()
+        let button = Utilities().customButton()
         button.setTitle("Register", for: .normal)
-        button.backgroundColor = UIColor(named: "darkBlue")
-        button.titleLabel?.font = UIFont(name: "Gill Sans SemiBold", size: 20)
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
     private(set) var loginButton: UIButton = {
         let button = Utilities().attributedButton("Already have an account?", " Log In")
+        return button
+    }()
+    
+    private(set) var plusPhotoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .black
+        button.setDimensions(width: 128, height: 128)
+        button.layer.cornerRadius = 128 / 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 3
+        
         return button
     }()
     
@@ -139,6 +151,7 @@ class RegistrationView: UIView {
         addSubview(scrollView)
         scrollView.addSubview(signUpLabel)
         scrollView.addSubview(adviceLabel)
+        scrollView.addSubview(plusPhotoButton)
         scrollView.addSubview(stackMain)
         
         NSLayoutConstraint.activate([
@@ -152,14 +165,19 @@ class RegistrationView: UIView {
             signUpLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
             signUpLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             adviceLabel.topAnchor.constraint(equalTo: signUpLabel.bottomAnchor, constant: 10),
-            adviceLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            adviceLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            plusPhotoButton.topAnchor.constraint(equalTo: adviceLabel.bottomAnchor, constant: 10),
+            plusPhotoButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
             stackMain.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             stackMain.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            stackMain.topAnchor.constraint(equalTo: adviceLabel.bottomAnchor, constant: 16),
-            stackMain.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
+            stackMain.topAnchor.constraint(equalTo: plusPhotoButton.bottomAnchor, constant: 16),
+            stackMain.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16)
         ])
         
         NSLayoutConstraint.activate([

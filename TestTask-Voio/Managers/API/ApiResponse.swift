@@ -8,5 +8,6 @@
 import Foundation
 
 struct ApiResponse<T: Decodable>: Decodable {
+    let resultCount: Int?
     let results: T?
 }

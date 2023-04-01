@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class SearchViewController: UIViewController {
     
@@ -31,21 +32,24 @@ class SearchViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        title = "Search"
-        view.backgroundColor = .systemBackground
         super.viewDidLoad()
-        
+        setupDelegates()
+        setupUI()
+        hideKeyboard()
+    }
+    
+    private func setupDelegates() {
         viewModel.delegate = self
         views.movieCollectionView.dataSource = self
         views.movieCollectionView.delegate = self
         views.searchBar.delegate = self
-        
-        hideKeyboard()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        views.movieCollectionView.reloadData()
+    private func setupUI() {
+        title = "Search"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        view.backgroundColor = UIColor(named: "customDark")
     }
 }
 
@@ -76,7 +80,6 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        
         if let text = searchBar.text {
             viewModel.fetchMovies(query: text)
             views.movieCollectionView.reloadData()
@@ -86,7 +89,8 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: SearchVMDelegate{
     func didUpdateMovies(_ movies: [Movie]) {
-        self.views.movieCollectionView.reloadData()
+        self.views.noResult.isHidden = true
+        views.movieCollectionView.reloadData()
     }
 }
 

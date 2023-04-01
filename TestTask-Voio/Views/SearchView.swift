@@ -10,20 +10,39 @@ import UIKit
 class SearchView: UIView {
     
     // MARK: Outlets
+    private(set) var noResult: UIStackView = {
+        let imageView = UIImageView()
+        imageView.tintColor = UIColor(named: "customYellow")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "rectangle.and.text.magnifyingglass")
+        imageView.setDimensions(width: 50, height: 50)
+        let stack = Utilities().containerView(withlabel: "Search movies right here!", view: imageView)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .center
+        stack.distribution = .equalSpacing
+        stack.axis = .vertical
+        return stack
+    }()
+    
     private(set) var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.placeholder = "Search"
+        searchBar.searchBarStyle = .minimal
+        searchBar.backgroundColor = .clear
+        searchBar.barStyle = .black
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
     
     private(set) var movieCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width / 2, height: 250)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width / 2, height: 235)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.keyboardDismissMode = .onDrag
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
@@ -42,9 +61,14 @@ class SearchView: UIView {
     
     // MARK: Setup UI
     private func setupUI() {
-        backgroundColor = .white
         addSubview(searchBar)
         addSubview(movieCollectionView)
+        addSubview(noResult)
+        
+        NSLayoutConstraint.activate([
+            noResult.centerXAnchor.constraint(equalTo: centerXAnchor),
+            noResult.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),

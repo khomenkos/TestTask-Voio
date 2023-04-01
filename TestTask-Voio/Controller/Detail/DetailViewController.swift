@@ -37,13 +37,14 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "customDark")
         setupUI()
         setupEventHandlers()
         setupNavBar()
     }
     
     // MARK: Helpers
-    func setupUI() {
+    private func setupUI() {
         views.configure(movie: viewModel.movie)
         updateStarButton()
     }
@@ -79,8 +80,12 @@ class DetailViewController: UIViewController {
     
     @objc func shareButtonPressed() {
         guard let url = viewModel.movie.trackViewUrl?.asUrl else { return }
-        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        self.present(activityViewController, animated: true, completion: nil)
+        DispatchQueue.global().async {
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            DispatchQueue.main.async {
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
     }
     
     @objc func favoriteButtonPressed() {

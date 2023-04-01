@@ -29,9 +29,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
-        view.backgroundColor = UIColor(named: "lightGray")
+        view.backgroundColor = UIColor(named: "customDark")
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        setupUI()
         loadData()
         setupEventHandlers()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ProgressHUD.dismiss()
     }
     
     // MARK: Actions
@@ -61,18 +69,32 @@ class ProfileViewController: UIViewController {
     // MARK: Helpers
     private func configure() {
         guard let user = user else { return }
+        views.image.sd_setImage(with: user.profileImageUrl)
         views.fullNameLabel.text = user.fullName
         views.emailLabel.text = user.email
     }
     
-    func loadData() {
+    private func setupUI() {
+        title = "My Account"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        view.backgroundColor = UIColor(named: "customDark")
+    }
+    
+    private func loadData() {
+        
         guard let uid = Auth.auth().currentUser?.uid else {
             ProgressHUD.showError("User not logged in")
             return
         }
         ProgressHUD.show()
-        DatabaseManager.shared.fetchUser(uid: uid) { user in
-            self.user = user
+        
+        DispatchQueue.global(qos: .background).async {
+            DatabaseManager.shared.fetchUser(uid: uid) { user in
+                DispatchQueue.main.async {
+                    self.user = user
+                }
+            }
         }
     }
 }

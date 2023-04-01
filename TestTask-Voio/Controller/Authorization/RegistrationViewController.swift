@@ -23,7 +23,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: "customDark")
         setupKeyboard()
         setupEventHandlers()
         setupDelegates()
@@ -33,21 +33,30 @@ class RegistrationViewController: UIViewController {
     private func setupEventHandlers() {
         views.registerButton.addTarget(self, action: #selector(registrationButtonTapped), for: .touchUpInside)
         views.loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        views.plusPhotoButton.addTarget(self, action: #selector(addProfilePhotoBtn), for: .touchUpInside)
     }
     
     private func setupDelegates() {
-        views.nameTextField.delegate = self
-        views.lastNameTextField.delegate = self
-        views.emailTextField.delegate = self
         views.passwordTextField.delegate = self
         views.confirmPassTextField.delegate = self
+        views.imagePicker.delegate = self
+        views.imagePicker.allowsEditing = true
     }
     
     @objc func loginButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func addProfilePhotoBtn() {
+        present(views.imagePicker, animated: true, completion: nil)
+    }
+    
     @objc func registrationButtonTapped() {
+        guard let profileImage = views.profileImage else {
+            self.showAlert(withTitle: "Registration Error", message: "Please select a profile image.")
+            return
+        }
+        
         guard let firstName = views.nameTextField.text, !firstName.isEmpty,
               let lastName = views.lastNameTextField.text, !lastName.isEmpty,
               let email = views.emailTextField.text, !email.isEmpty,
@@ -61,7 +70,8 @@ class RegistrationViewController: UIViewController {
         AuthManager.shared.registerNewUser(firstName: firstName,
                                            lastName: lastName,
                                            email: email,
-                                           password: password) { registered in
+                                           password: password,
+                                           profileImage: profileImage) { registered in
             DispatchQueue.main.async {
                 if registered {
                     ProgressHUD.dismiss()
@@ -115,3 +125,22 @@ extension RegistrationViewController: UITextFieldDelegate {
         self.activeTextField = nil
     }
 }
+
+extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.editedImage] as? UIImage else { return }
+        self.views.profileImage = profileImage
+        
+        views.plusPhotoButton.layer.cornerRadius = 128 / 2
+        views.plusPhotoButton.layer.masksToBounds = true
+        views.plusPhotoButton.imageView?.contentMode = .scaleAspectFill
+        views.plusPhotoButton.imageView?.clipsToBounds = true
+        views.plusPhotoButton.layer.borderColor = UIColor.black.cgColor
+        views.plusPhotoButton.layer.borderWidth = 3
+        
+        self.views.plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+

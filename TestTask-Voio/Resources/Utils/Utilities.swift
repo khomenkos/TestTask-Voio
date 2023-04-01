@@ -31,7 +31,8 @@ final class Utilities {
         label.textAlignment = .left
         label.text = text
         label.numberOfLines = 2
-        label.font = UIFont(name: "Gill Sans SemiBold", size: 17)
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         return label
     }
     
@@ -40,15 +41,25 @@ final class Utilities {
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
-        textField.backgroundColor = .secondarySystemBackground
+        textField.textColor = .white
+        textField.backgroundColor = UIColor(named: "customDarkGray")
         return textField
     }
     
     func attributedButton(_ firstPart: String, _ secondPart: String) -> UIButton {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: firstPart, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        attributedTitle.append(NSAttributedString(string: secondPart, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.systemBlue]))
+        attributedTitle.append(NSAttributedString(string: secondPart, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
+        return button
+    }
+    
+    func customButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitleColor(UIColor(named: "customDark"), for: .normal)
+        button.backgroundColor = UIColor(named: "customYellow")
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.layer.cornerRadius = 15
         return button
     }
 }

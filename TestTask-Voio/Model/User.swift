@@ -20,6 +20,10 @@ struct User {
         self.firstName = dictionary["firstName"] as? String ?? ""
         self.lastName = dictionary["lastName"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
+        if let profileImageUrlString = dictionary["profileImage"] as? String {
+            guard let url = URL(string: profileImageUrlString) else { return }
+            self.profileImageUrl = url
+        }
     }
 }
 
