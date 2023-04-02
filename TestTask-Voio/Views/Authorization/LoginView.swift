@@ -10,6 +10,7 @@ import UIKit
 class LoginView: UIView {
     
     // MARK: Outlets
+    
     // Labels
     private let welcomeLabel: UILabel = {
         let label = UILabel()
